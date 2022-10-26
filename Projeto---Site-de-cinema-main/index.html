@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cine Purple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .corpo, .container-fluid {
+            max-width: 1550px;
+            padding: 0px;
+        }
+
+        .full {
+            height: 100vh;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .branco {
+            color: white;
+        }
+
+        .link:hover {
+            color: #ff41bd;
+        }
+
+        p {
+            font-weight: 700;
+        }
+
+        #linha {
+            height: 1px;
+            width: 100%;
+            background-color: #939393;
+        }
+
+        body {
+            background-color: #444444;
+        }
+
+        .cartao, .topo {
+            padding: 0px;
+        }
+
+        .botao_programacao {
+            background-color: #ff3c6d;
+            width: 150px;
+        }
+
+        .filmes {
+            max-width: 18rem; outline: 1px solid #ffffff;
+        }
+
+    </style>
+</head>
+
+<body class="container-fluid align-items-center">
+
+    <!--Header-->
+
+    <div class="container-fluid bg-dark corpo">
+
+        <header class="container-fluid fixed-top topo">
+            <nav class="navbar navbar-expand-lg" style="background-color: #ff3c6d;">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logo/gem-regular.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                        Cine Purple
+                    </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle text-light" href="#" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Gêneros
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#acao">Ação</a></li>
+                          <li><a class="dropdown-item" href="#fantasia">Fantasia</a></li>
+                          <li><a class="dropdown-item" href="#infantil">Infantil</a></li>
+                      </ul>
+                    </li>
+                      <li class="nav-item">
+                          <a class="nav-link link" href="#">Ingressos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="#">Novidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="#">Promoções</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Perfil
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Login</a></li>
+                                <li><a class="dropdown-item" href="#">Cadastro</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                  </div>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <!--Main-->
+
+        <main class="container">
+            <div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="img/carousel/slide_temp2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img src="img/carousel/slide_frankewennie.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img src="img/carousel/slide_temp1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <br><br>
+            
+            <div class="container text-light text-center">
+                <h2>Programação em:</h2>
+            </div>
+            <div class="container programacao" style="max-width: 700px;">
+                <nav class="navbar justify-content-space-between">
+                    <a href="/cidades/sp.html" class="btn btn-outline-light me-2 botao_programacao" type="button">São Paulo</a>
+                    <a href="/cidades/rj.html" class="btn btn-outline-light me-2 botao_programacao" type="button">Rio de Janeiro</a>
+                    <a href="/cidades/bh.html" class="btn btn-outline-light me-2 botao_programacao" type="button">Belo Horizonte</a>
+                </nav>
+            </div>
+
+            <div class="container">
+                <canvas id="linha"></canvas>
+            </div>
+
+            <br><br>
+
+            <div class="container text-light" id="acao">
+                <h2>Ação</h2>
+            </div>
+
+            <br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_john_wick_3.jpg" class="card-img" alt="john wick 3">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">John Wick 3: Parabellum</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_scott_pilgrim.jpg" class="card-img" alt="scott pilgrim">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">Scott Pilgrim contra o Mundo</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_sucker_punch.jpg" class="card-img" alt="sucker punch">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">Sucker Punch - Mundo Surreal</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_no_limite_do_amanha.jpg" class="card-img" alt="no limite do amanhã">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">No Limite do Amanhã</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="container text-light" id="fantasia">
+                <h2>Fantasia</h2>
+            </div>
+
+            <br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_alice_atraves_do_espelho.jpg" class="card-img" alt="alice através do espelho">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">Alice Através do Espelho</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_a_bussola_de_ouro.jpg" class="card-img" alt="a bussola de ouro">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">A Bússola de Ouro</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_arthur_e_os_minimoys.jpg" class="card-img" alt="arthur e os minimoys">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">Arthur e os Minimoys</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_o_labirinto_do_fauno.jpg" class="card-img" alt="">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">O Labirinto do Fauno</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="container text-light" id="infantil">
+                <h2>Infantil</h2>
+            </div>
+
+            <br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_coraline_e_o_mundo_secreto.jpg" class="card-img" alt="coraline">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">Coraline e o Mundo Secreto</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_a_noiva_cadaver.jpg" class="card-img" alt="a noiva cadaver">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">A Noiva-Cadáver</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_o_entranho_mundo_de_jack.jpg" class="card-img" alt="o mundo de jack">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">O Estranho Mundo de Jack</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3 filmes">
+                            <img src="img/cartaz/capa_divertida_mente.jpg" class="card-img" alt="divertida mente">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center cartao movie_card">
+                                <h5 class="card-title text-center text-light">Divertida Mente</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <br>
+        <!--Footer-->
+
+        <footer style="background-color: #2f2f2f; color: #ff3c6d; align-items:center; flex-direction:row"
+            class="pt-5 container-fluid">
+            <div class="row">
+                <div class="col-4 text-center pb-2">
+                    <h5>Filmes</h5>
+                    <ul class="nav flex-column ">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Ingressos</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Em breve</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Em cartaz</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-4 text-center pb-2">
+                    <h5>Salas</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2 "><a href="#" class="nav-link link p-0">3D</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">4D</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Legendas</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-4 text-center pb-2">
+                    <h5>Redes sociais</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Instagram</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Facebook</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Whatsapp</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <canvas id="linha"></canvas>
+            </div>
+
+            <div class="container pb-2 pt-3 my-8">
+                <p class="text-center">2022 Cine Purple, Inc. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

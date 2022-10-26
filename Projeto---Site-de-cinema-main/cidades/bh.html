@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Cine Purple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .corpo, .container-fluid {
+            max-width: 1550px;
+            padding: 0px;
+        }
+
+        .full {
+            height: 100vh;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .branco {
+            color: white;
+        }
+
+        .link:hover {
+            color: #ff41bd;
+        }
+
+        p {
+            font-weight: 700;
+        }
+
+        #linha {
+            height: 1px;
+            width: 100%;
+            background-color: #939393;
+        }
+
+        body {
+            background-color: #444444;
+        }
+
+        .cartao, .topo {
+            padding: 0px;
+        }
+
+        .botao_programacao {
+            background-color: #ff3c6d;
+            min-width: 150px;
+        }
+
+        .botoes_cards {
+            margin-bottom: 3px;
+            padding: 6px 11px;
+        }
+
+        .emcartaz{
+            color: #8b0000;
+        }
+
+        .linha {
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body class="container-fluid align-items-center">
+
+    <!--Header-->
+
+    <div class="container-fluid bg-dark corpo">
+
+        <header class="container-fluid fixed-top topo">
+            <nav class="navbar navbar-expand-lg" style="background-color: #ff3c6d;">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="/img/logo/gem-regular.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                        Cine Purple
+                    </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link link" aria-current="page" href="/index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link link" href="#">Ingressos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="#">Novidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="#">Promoções</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Perfil
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Login</a></li>
+                                <li><a class="dropdown-item" href="#">Cadastro</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                  </div>
+                </div>
+            </nav>
+        </header>
+
+        <br><br><br><br>
+
+        <!--Main-->
+
+        <main class="container">
+            <div class="container text-light text-center">
+                <h2>Programação em:</h2>
+            </div>
+            <div class="container programacao" style="max-width: 700px;">
+                <nav class="navbar justify-content-space-between">
+                    <a href="/cidades/sp.html" class="btn btn-outline-light me-2 botao_programacao" type="button">São Paulo</a>
+                    <a href="/cidades/rj.html" class="btn btn-outline-light me-2 botao_programacao" type="button">Rio de Janeiro</a>
+                    <a href="/cidades/bh.html" class="btn btn-outline-light me-2 botao_programacao" type="button">Belo Horizonte</a>
+                </nav>
+            </div>
+
+            <div class="container">
+                <canvas id="linha"></canvas>
+            </div>
+
+            <br><br>
+            <div class="container text-light text-center" id="cartaz">
+                <h2>Filme em cartaz em Belo Horizonte</h2>
+            </div>
+
+            <br>
+            
+            <div class="container">
+                <div class="row justify-content-space-between linha">
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px; max-height: 470px;">
+                            <img src="/img/cartaz/capa_black_adam.jpg" class="card-img-top" alt="adão negro">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal2" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal3" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção: Jaume Collet-Serra</p>
+                                        <p>Elenco: Dwayne Johnson, Sarah Sahi, Noah Centineo...</p>
+                                        <p>Gênero: Ação/Fantasia</p>
+                                        <p>Duração: 2h 5m</p>
+                                        <p>Classficação indicativa: +14</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Adão Negro é o filme solo do anti-herói, baseado no personagem em quadrinhos Black Adam (Dwayne Johnson) da DC Comics, grande antagonista de Shazam!, tendo no longa, sua história de origem explorada, e revelando seu passado de escravo no país Kahndaq. Nascido no Egito Antigo, o anti-herói tem super força, velocidade, resistência, capacidade de voar e de disparar raios. Alter ego de Teth-Adam e filho do faraó Ramsés II, Adão Negro foi consumido por poderes mágicos e transformado em um feiticeiro. Grande inimigo de Shazam! nas HQs, apesar dele acreditar em seu pontecial e, inclusive, oferecê-lo como um guerreiro do bem, Adão Negro acaba usando suas habilidades especiais para o mal. O anti-herói em busca de redenção ou um herói que se tornou vilão, pode ser capaz de destruir tudo o que estiver pela frente - ou de encontrar seu caminho.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 1 - 15:10 | 18:00 | 20:50 - DUB</p>
+                                        <p>Interlagos: Sala 6 - 14:10 | 16:15 | 19:50 - DUB</p>
+                                        <p>Aricanduva: Sala 3 - 15:40 | 18:10 | 21:00 - DUB</p>
+                                        <p>Aricanduva: Sala 2 - 14:20 | 17:10 | 20:00 - DUB</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px; max-height: 470px;">
+                            <img src="/img/cartaz/capa_avatar.jpg" class="card-img-top" alt="avatar">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal4" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal5" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal6" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção:  James Cameron</p>
+                                        <p>Elenco: Sam Worthington, Zoë Saldaña, Vin Diesel...</p>
+                                        <p>Gênero:  Ficção científica/Aventura</p>
+                                        <p>Duração: 3h</p>
+                                        <p>Classficação indicativa: +12</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Em Avatar: O Caminho da Água, sequência de Avatar (2009), após dez anos da primeira batalha de Pandora entre os Na'vi e os humanos, Jake Sully (Sam Worthington) vive pacificamente com sua família e sua tribo. Ele e Ney'tiri formaram uma família e estão fazendo de tudo para ficarem juntos, devido a problemas conjugais e papéis que cada um tem que exercer dentro da tribo. No entanto, eles devem sair de casa e explorar as regiões de Pandora, indo para o mar e fazendo pactos com outros Na'vi da região. Quando uma antiga ameaça ressurge, Jake deve travar uma guerra difícil contra os humanos novamente. Mesmo com dificuldade, Jake acaba fazendo novos aliados - alguns dos quais já vivem entre os Na'vi e outros com novos avatares. Mesmo com uma guerra em curso, Jake e Ney'tiri terão que fazer de tudo para ficarem juntos e cuidar da família e de sua tribo.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 5 - 13:10 | 16:50 | 20:00 - DUB</p>
+                                        <p>Interlagos: Sala 1 - 16:10 | 19:00 | 22:30 - DUB</p>
+                                        <p>Aricanduva: Sala 3 - 13:20 | 15:30 | 19:00 - LEG</p>
+                                        <p>Aricanduva: Sala 2 - 15:20 | 17:10 | 20:30 - DUB</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px; max-height: 470px;">
+                            <img src="/img/cartaz/capa_jurassic_world_dominion.jpg" class="card-img-top" alt="scott pilgrim">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal7" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal8" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal9" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção: Colin Trevorrow</p>
+                                        <p>Elenco: Chris Pratt, Bryce Dallas Howard, Laura Dern...</p>
+                                        <p>Gênero: Ação/Ficção científica</p>
+                                        <p>Duração: 2h 27m</p>
+                                        <p>Classficação indicativa: +12</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Em Jurassic World Domínio, sequência direta do longa de 2018 Jurassic World: Reino Ameaçado, quatro anos após a destruição da Ilha Nublar, os dinossauros agora vivem - e caçam - ao lado de humanos em todo o mundo. Contudo, nem todos répteis consegue viver em harmonia com a espécie humana, trazendo problemas graves. Esse frágil equilíbrio remodelará o futuro e determinará, de uma vez por todas, se os seres humanos continuarão sendo os principais predadores em um planeta que agora compartilham com as criaturas mais temíveis da história em uma nova era. Os ex-funcionários do parque dos dinossauros, Claire (Bryce Dallas Howard) e Owen (Chris Pratt) se envolvem nessa problemática e buscam uma solução, contando com a ajuda dos cientistas experientes em dinossauros, que retornam dos filmes antecessores. Capítulo final da trilogia iniciada por Jurassic World - O Mundo dos Dinossauros.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 1 - 14:40 | 17:30 | 20:20 - DUB</p>
+                                        <p>Interlagos: Sala 2 - 16:10 | 20:00 | 22:50 - LEG</p>
+                                        <p>Aricanduva: Sala 7 - 16:10 | 19:00 | 21:50 - DUB-3D</p>
+                                        <p>Aricanduva: Sala 2 - 14:20 | 17:10 | 20:00 - LEG</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px;">
+                            <img src="/img/cartaz/capa_minions2.webp" class="card-img-top" alt="..." style="max-height: 355px;">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal2" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal3" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção: Kyle Balda</p>
+                                        <p>Elenco: Leandro Hassum, Steve Carell, Alan Arkin</p>
+                                        <p>Gênero: Comédia/Aventura</p>
+                                        <p>Duração: 1h 30m</p>
+                                        <p>Classficação indicativa: Livre</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Minions 2: A Origem de Gru é a continuação das aventuras dos Minions, e desta vez, eles ajudam um Gru ainda criança, descobrindo como ser vilão. Na década de 1970, Gru está crescendo no subúrbio. Fã de um grupo de supervilões conhecido como Vicious 6, Gru traça um plano para se tornar malvado o suficiente para se juntar a eles. Felizmente, ele recebe apoio de seus leais seguidores, os Minions. Juntos, eles exercem suas habilidades enquanto constroem seu primeiro covil, experimentam suas primeiras armas e realizam as primeiras missões. Quando os Vicious 6 expulsam seu líder - o lendário lutador Wild Knuckles - Gru participa de uma entrevista para se tornar seu mais novo membro. A entrevista não vai bem, e só piora depois que Gru os supera e de repente, o garoto se vê como inimigo mortal do grupo do mal. Gru se voltará para uma fonte improvável de orientação, o próprio Wild Knuckles, e descobrirá que até os supervilões precisam de uma ajudinha de seus amigos.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 2 - 16:10 | 19:00 | 21:50 - DUB</p>
+                                        <p>Interlagos: Sala 6 - 14:10 | 17:00 | 19:50 - DUB</p>
+                                        <p>Aricanduva: Sala 1 - 15:20 | 18:10 | 21:00 - DUB</p>
+                                        <p>Aricanduva: Sala 2 - 14:20 | 17:10 | 20:00 - DUB</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        
+        <!--Footer-->
+
+        <footer style="background-color: #2f2f2f; color: #ff3c6d; align-items:center; flex-direction:row"
+            class="pt-5 container-fluid">
+            <div class="row">
+                <div class="col-4 text-center pb-2">
+                    <h5>Filmes</h5>
+                    <ul class="nav flex-column ">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Ingressos</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Em breve</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Em cartaz</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-4 text-center pb-2">
+                    <h5>Salas</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2 "><a href="#" class="nav-link link p-0">3D</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">4D</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Legendas</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-4 text-center pb-2">
+                    <h5>Redes sociais</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Instagram</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Facebook</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Whatsapp</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <canvas id="linha"></canvas>
+            </div>
+
+            <div class="container pb-2 pt-3 my-8">
+                <p class="text-center">2022 Cine Purple, Inc. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

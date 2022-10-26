@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Cine Purple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .corpo, .container-fluid {
+            max-width: 1550px;
+            padding: 0px;
+        }
+
+        .full {
+            height: 100vh;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .branco {
+            color: white;
+        }
+
+        .link:hover {
+            color: #ff41bd;
+        }
+
+        p {
+            font-weight: 700;
+        }
+
+        #linha {
+            height: 1px;
+            width: 100%;
+            background-color: #939393;
+        }
+
+        body {
+            background-color: #444444;
+        }
+
+        .cartao, .topo {
+            padding: 0px;
+        }
+
+        .botao_programacao {
+            background-color: #ff3c6d;
+            min-width: 150px;
+        }
+
+        .botoes_cards {
+            margin-bottom: 3px;
+            padding: 6px 11px;
+        }
+
+        .emcartaz{
+            color: #8b0000;
+        }
+
+        .linha {
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body class="container-fluid align-items-center">
+
+    <!--Header-->
+
+    <div class="container-fluid bg-dark corpo">
+
+        <header class="container-fluid fixed-top topo">
+            <nav class="navbar navbar-expand-lg" style="background-color: #ff3c6d;">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="/img/logo/gem-regular.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                        Cine Purple
+                    </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link link" aria-current="page" href="/index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link link" href="#">Ingressos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="#">Novidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="#">Promoções</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Perfil
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Login</a></li>
+                                <li><a class="dropdown-item" href="#">Cadastro</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                  </div>
+                </div>
+            </nav>
+        </header>
+
+        <br><br><br><br>
+
+        <!--Main-->
+
+        <main class="container">
+            <div class="container text-light text-center">
+                <h2>Programação em:</h2>
+            </div>
+            <div class="container programacao" style="max-width: 700px;">
+                <nav class="navbar justify-content-space-between">
+                    <a href="/cidades/sp.html" class="btn btn-outline-light me-2 botao_programacao" type="button">São Paulo</a>
+                    <a href="/cidades/rj.html" class="btn btn-outline-light me-2 botao_programacao" type="button">Rio de Janeiro</a>
+                    <a href="/cidades/bh.html" class="btn btn-outline-light me-2 botao_programacao" type="button">Belo Horizonte</a>
+                </nav>
+            </div>
+
+            <div class="container">
+                <canvas id="linha"></canvas>
+            </div>
+
+            <br><br>
+            <div class="container text-light text-center" id="cartaz">
+                <h2>Filme em cartaz em São Paulo</h2>
+            </div>
+
+            <br>
+            
+            <div class="container">
+                <div class="row justify-content-space-between linha">
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px;">
+                            <img src="/img/cartaz/capa_divertida_mente.jpg" class="card-img-top" alt="Divertida Mente">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal2" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal3" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção: Pete Docter</p>
+                                        <p>Elenco: Miá Mello, Amy Poehler, Otaviano Costa</p>
+                                        <p>Gênero: Infantil/Comédia</p>
+                                        <p>Duração: 1h 35m</p>
+                                        <p>Classficação indicativa: Livre</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Riley é uma garota divertida de 11 anos de idade, que deve enfrentar mudanças importantes em sua vida quando seus pais decidem deixar a sua cidade natal, no estado de Minnesota, para viver em San Francisco. Dentro do cérebro de Riley, convivem várias emoções diferentes, como a Alegria, o Medo, a Raiva, o Nojinho e a Tristeza. A líder deles é Alegria, que se esforça bastante para fazer com que a vida de Riley seja sempre feliz. Entretanto, uma confusão na sala de controle faz com que ela e Tristeza sejam expelidas para fora do local. Agora, elas precisam percorrer as várias ilhas existentes nos pensamentos de Riley para que possam retornar à sala de controle - e, enquanto isto não acontece, a vida da garota muda radicalmente.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 2 - 16:10 | 19:00 | 21:50 - DUB</p>
+                                        <p>Interlagos: Sala 6 - 14:10 | 17:00 | 19:50 - DUB</p>
+                                        <p>Aricanduva: Sala 1 - 15:20 | 18:10 | 21:00 - DUB</p>
+                                        <p>Aricanduva: Sala 2 - 14:20 | 17:10 | 20:00 - DUB</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px;">
+                            <img src="/img/cartaz/capa_a_bussola_de_ouro.jpg" class="card-img-top" alt="a bússola de ouro">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal4" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal5" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal6" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção: Chris Weitz</p>
+                                        <p>Elenco: Nicole Kidman, Daniel Craig, Dakota Blue Richards</p>
+                                        <p>Gênero: Fantasia/Aventura</p>
+                                        <p>Duração: 1h 53m</p>
+                                        <p>Classficação indicativa: 10</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Em A Bússola de Ouro, Lyra Belacqua (Dakota Blue Richards) é uma órfã que foi criada na Universidade Oxford. No mundo em que vive todas as pessoas têm um "daemon", ou seja, uma manifestação de sua própria alma em forma animal. Lyra leva uma vida tranqüila até ela e seu daemon, Pantalaimon, descobrirem a existência de uma substância misteriosa chamada "pó". Isto provoca um estranho efeito nas crianças, o que faz com que as autoridades religiosas se convençam de que representa o mal. Seguindo o misterioso Lorde Asriel (Daniel Craig), seu protetor, Lyra parte em busca de uma resposta. Em Londres ela descobre que diversas crianças estão desaparecendo, entre elas Roger (Ben Walker), seu melhor amigo. Com a ajuda de um instrumento ancestral, que se parece com uma bússola de ouro, ela parte numa jornada que pode alterar o mundo para sempre.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 5 - 17:10 | 19:00 | 21:50 - DUB</p>
+                                        <p>Interlagos: Sala 1 - 16:10 | 18:00 | 20:50 - DUB</p>
+                                        <p>Aricanduva: Sala 3 - 13:20 | 15:10 | 21:00 - LEG</p>
+                                        <p>Aricanduva: Sala 2 - 15:20 | 17:10 | 20:00 - DUB</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px;">
+                            <img src="/img/cartaz/capa_scott_pilgrim.jpg" class="card-img-top" alt="scott pilgrim">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal7" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal8" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal9" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção: Edgar Wright</p>
+                                        <p>Elenco: Michael Cera, Mary Elizabeth Winstead, Jason Schwartzman</p>
+                                        <p>Gênero: Ação/Romance</p>
+                                        <p>Duração: 1h 52m</p>
+                                        <p>Classficação indicativa: 12</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Scott Pilgrim (Michael Cera) tem 23 anos, integra uma banda de colégio, vive trocando de emprego e tem um namoro firme. Sua vida está maravilhosa, até conhecer Ramona V. Flowers (Mary Elizabeth Winestead). Ele logo se apaixona perdidamente por ela, só que não será fácil conquistar seu amor. Para tanto ele precisa enfrentar os sete ex-namorados dela, que estão dispostos a tudo para impedir sua felicidade com outra pessoa.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 1 - 14:40 | 17:30 | 20:20 - DUB</p>
+                                        <p>Interlagos: Sala 2 - 16:10 | 19:00 | 21:50 - LEG</p>
+                                        <p>Aricanduva: Sala 7 - 16:10 | 19:00 | 21:50 - DUB-3D</p>
+                                        <p>Aricanduva: Sala 2 - 14:20 | 17:10 | 20:00 - LEG</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card" style="max-width: 300px;">
+                            <img src="/img/cartaz/capa_jumanji.jpg" class="card-img-top" alt="jumanji">
+                            <div class="card-body">
+                            <!-- Butão modal -->
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal10" style="background-color: #ff3c6d;">
+                                Detalhes
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal11" style="background-color: #ff3c6d;">
+                                Sinopse
+                            </button>
+                            <button type="button" class="btn text-light botoes_cards" data-bs-toggle="modal" data-bs-target="#exampleModal12" style="background-color: #ff3c6d;">
+                                Horários
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-muted">
+                                        <p>Direção: Joe Johnston</p>
+                                        <p>Elenco: Robin Williams, Kirsten Dunst, Bradley Pierce</p>
+                                        <p>Gênero: Fantasia/Aventura </p>
+                                        <p>Duração: 1h 44m</p>
+                                        <p>Classficação indicativa: 10</p>
+                                    </div>
+                                    <div class="modal-footer emcartaz">
+                                        <b>Em cartaz</b>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sinopse</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Em 1869, dois garotos apavorados enterram um baú e, cem anos depois, o filho de um empresário descobre que dentro dele há um jogo chamado Jumanji. Quando começa a jogar com uma amiga, ele logo é penalizado a ficar na floresta até que alguém tire cinco ou oito. Como na jogada seguinte ela é atacada por morcegos, em virtude de seu posicionamento no tabuleiro, o jogo é interrompido e ele imediatamente fica preso dentro de Jumanji. Mas, vinte e seis anos depois, duas crianças começam a jogar e uma acaba libertando-o. Porém, a única forma de deixar tudo como antes é terminar a partida, mas para isto é preciso achar a participante da partida de 1969. Juntos eles enfrentam perigos, que surgem a cada jogada, e enquanto o jogo se desenrola a cidade se transforma em um caos, pois animais selvagens, plantas assassinas e até um caçador de pessoas saem do tabuleiro e vão permanecer enquanto o jogo não findar.
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Horários</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>27/10</p>
+                                        <p>Interlagos: Sala 1 - 15:40 | 18:20 | 21:00 - DUB</p>
+                                        <p>Interlagos: Sala 4 - 13:40 | 15:20 | 18:00 - DUB</p>
+                                        <p>Aricanduva: Sala 1 - 15:20 | 18:10 | 21:00 - DUB</p>
+                                        <p>Aricanduva: Sala 2 - 14:10 | 17:00 | 19:50 - DUB</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        
+        <!--Footer-->
+
+        <footer style="background-color: #2f2f2f; color: #ff3c6d; align-items:center; flex-direction:row"
+            class="pt-5 container-fluid">
+            <div class="row">
+                <div class="col-4 text-center pb-2">
+                    <h5>Filmes</h5>
+                    <ul class="nav flex-column ">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Ingressos</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Em breve</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Em cartaz</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-4 text-center pb-2">
+                    <h5>Salas</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2 "><a href="#" class="nav-link link p-0">3D</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">4D</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Legendas</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-4 text-center pb-2">
+                    <h5>Redes sociais</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Instagram</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Facebook</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link link p-0">Whatsapp</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <canvas id="linha"></canvas>
+            </div>
+
+            <div class="container pb-2 pt-3 my-8">
+                <p class="text-center">2022 Cine Purple, Inc. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>
